@@ -1,8 +1,8 @@
 <div align="center">
   
-# AndroSploit
+# 🤖 AndroSploit
   
-### Android Exploitation Toolkit with Metasploit Integration.
+### 🤖 Android Exploitation Toolkit with Metasploit Integration.
 
 An all-in-one hacking tool written in `Python` to remotely exploit Android devices using `ADB` (Android Debug Bridge) and `Metasploit-Framework`.
 
@@ -24,13 +24,13 @@ The goal of this project is to simplify penetration testing and vulnerability as
 > [!TIP]
 > __AndroSploit__ can also function as a complete ADB Toolkit, allowing various operations on Android devices over Wi-Fi as well as USB. 
 
-# Screenshots
+# 📷 Screenshots
 
 ![Screenshot Page 1](docs/Screenshot-1.PNG)
 ![Screenshot Page 2](docs/Screenshot-2.PNG)
 ![Screenshot Page 3](docs/Screenshot-3.PNG)
 
-# Features
+# ✨ Features
 
 * Connect devices using ADB remotely.
 * List connected devices.
@@ -63,7 +63,7 @@ The goal of this project is to simplify penetration testing and vulnerability as
 * Scan the local network for connected devices.
 * Record and stream audio from the microphone and device.
 
-# Requirements  
+# 📋 Requirements  
 * [`python3`](https://www.python.org/) : Python 3.10 or newer
 * [`pip`](https://pip.pypa.io/en/stable/installation/) : Python package manager
 * [`adb`](https://developer.android.com/studio/command-line/adb) : Android Debug Bridge
@@ -71,7 +71,7 @@ The goal of this project is to simplify penetration testing and vulnerability as
 * [`scrcpy`](https://github.com/Genymobile/scrcpy) : Scrcpy
 * [`nmap`](https://nmap.org/) : Nmap
 
-# Run AndroSploit
+# 👨🏻‍💻 Run AndroSploit
 
 __AndroSploit__ runs directly using `python3`.
 
@@ -105,7 +105,7 @@ pip install -r requirements.txt
 python androsploit.py
 ```
 
-# Tutorial
+# 💡 Tutorial
 
 
 ## Setting up Android Phone for the first time
@@ -144,18 +144,18 @@ adb tcpip 5555
 9. Go to `Settings` >  `About Phone` > `Status` > `IP address` and note the phone's `IP Address`.
 10. Run __AndroSploit__ and select `Connect a device` and enter the target's `IP Address` to connect over Wi-Fi.
 
-# Disclaimer
+# ⚠️ Disclaimer
 
 * This project is for educational purposes only.
 * The developer is not responsible for any misuse or damage caused by this project.
 * Please use this tool ethically and responsibly on devices you own.
 * The end-user is responsible for obeying all local, state, and international laws.
 
-# Developer
+# 🛠️ Developer
 
 **Tejas Mahajan** - [@TejasMahajan](https://github.com/Tejas-beep)
 
-# Support Me
+# ❤️ Support Me
 If you like my work, consider supporting me via:
 
 <a href="https://paypal.me/Tejasmahajan18" target="_blank"> <kbd> <img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/paypal-button-blue.png" alt="PayPal" width="147"></a>
