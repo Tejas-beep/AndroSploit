@@ -26,9 +26,9 @@ The goal of this project is to simplify penetration testing and vulnerability as
 
 # Screenshots
 
-![Screenshot Page 1](docs/Screenshot-1.png)
-![Screenshot Page 2](docs/Screenshot-2.png)
-![Screenshot Page 3](docs/Screenshot-3.png)
+![Screenshot Page 1](doc/Screenshot-1.png)
+![Screenshot Page 2](doc/Screenshot-2.png)
+![Screenshot Page 3](doc/Screenshot-3.png)
 
 # Features
 
