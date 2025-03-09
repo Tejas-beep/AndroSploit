@@ -102,7 +102,7 @@ python androsploit.py
 
 # Developer
 
-**Tejas Mahajan** - [@TejasMahajan](https://github.com/YourUsername)
+**Tejas Mahajan** - [@TejasMahajan](https://github.com/Tejas-beep)
 
 # Support Me
 If you like my work, consider supporting me via:
