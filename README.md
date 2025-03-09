@@ -93,6 +93,45 @@ pip install -r requirements.txt
 python androsploit.py
 ```
 
+# Tutorial
+
+
+## Setting up Android Phone for the first time
+
+* __Enabling the Developer Options__
+
+1. Open `Settings`.
+2. Go to `About Phone`.
+3. Find `Build Number`.
+4. Tap on `Build Number` 7 times.
+5. Enter your pattern, PIN or password to enable the `Developer options` menu.
+6. The `Developer options` menu will now appear in your Settings menu.
+
+* __Enabling USB Debugging__
+
+1. Open `Settings`.
+2. Go to `System` > `Developer options`.
+3. Scroll down and Enable `USB debugging`.
+
+* __Connecting with Computer__
+
+1. Connect your Android device and `adb` host computer to a common Wi-Fi network.
+2. Connect the device to the host computer with a USB cable.
+3. Open a terminal in the computer and enter the following command :
+```
+adb devices
+```
+4. A pop-up will appear in the Android phone when you connect your phone to a new PC for the first time : `Allow USB debugging?`.
+5. Click on `Always allow from this computer` check-box and then click `Allow`.
+6. Then in the terminal enter the following command :
+```
+adb tcpip 5555
+```
+7. Now you can connect the Android Phone with the computer over Wi-Fi using `adb`.
+8. Disconnect the USB cable.
+9. Go to `Settings` >  `About Phone` > `Status` > `IP address` and note the phone's `IP Address`.
+10. Run __AndroSploit__ and select `Connect a device` and enter the target's `IP Address` to connect over Wi-Fi.
+
 # Disclaimer
 
 * This project is for educational purposes only.
