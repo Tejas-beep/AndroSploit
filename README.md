@@ -80,16 +80,28 @@ __AndroSploit__ runs directly using `python3`.
 
 #### On Linux / macOS :
 ```
-git clone https://github.com/YourUsername/AndroSploit.git
+git clone https://github.com/Tejas-beep/AndroSploit.git
+```
+```
 cd AndroSploit/
+```
+```
 pip install -r requirements.txt
+```
+```
 python3 androsploit.py
 ```
 #### On Windows :
 ```
-git clone https://github.com/YourUsername/AndroSploit.git
+git clone https://github.com/Tejas-beep/AndroSploit.git
+```
+```
 cd AndroSploit/
+```
+```
 pip install -r requirements.txt
+```
+```
 python androsploit.py
 ```
 
