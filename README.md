@@ -6,7 +6,7 @@
 
 An all-in-one hacking tool written in `Python` to remotely exploit Android devices using `ADB` (Android Debug Bridge) and `Metasploit-Framework`.
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Tejas-beep/AndroSploit)
+![GitHub release (March 2025)](https://img.shields.io/github/v/release/Tejas-beep/AndroSploit)
 ![Python](https://img.shields.io/badge/python-v3.10%2B-blue)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Tejas-beep/AndroSploit?logo=github)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Tejas-beep/AndroSploit?style=social)
