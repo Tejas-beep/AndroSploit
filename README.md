@@ -143,6 +143,23 @@ adb tcpip 5555
 9. Go to `Settings` >  `About Phone` > `Status` > `IP address` and note the phone's `IP Address`.
 10. Run __AndroSploit__ and select `Connect a device` and enter the target's `IP Address` to connect over Wi-Fi.
 
+
+# This tool is tested on
+
+-  ✅ Ubuntu
+-  ✅ Linux Mint
+-  ✅ Kali Linux
+-  ✅ Fedora
+-  ✅ Arch Linux
+-  ✅ Parrot Security OS
+-  ✅ Windows 11
+-  ✅ Termux (Android)
+
+> [!NOTE]
+> All the new features are primarily tested on **Linux**, thus **Linux** is recommended for running PhoneSploit Pro.
+Some features might not work properly on Windows.
+    
+
 # ⚠️ Disclaimer
 
 * This project is for educational purposes only.
