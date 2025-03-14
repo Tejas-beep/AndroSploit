@@ -156,7 +156,7 @@ adb tcpip 5555
 -  ✅ Termux (Android)
 
 > [!NOTE]
-> All the new features are primarily tested on **Linux**, thus **Linux** is recommended for running PhoneSploit Pro.
+> All the new features are primarily tested on **Linux**, thus **Linux** is recommended for running AndroSploit.
 Some features might not work properly on Windows.
     
 
