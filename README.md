@@ -174,4 +174,4 @@ Some features might not work properly on Windows.
 # ❤️ Support Me
 If you like my work, consider supporting me via:
 
-<a href="https://paypal.me/Tejasmahajan18" target="_blank"> <kbd> <img src="https://github.com/AzeemIdrisi/AzeemIdrisi/blob/main/docs/paypal-button-blue.png" alt="PayPal" width="147"></a>
+<a href="https://paypal.me/Tejasmahajan18" target="_blank"> <kbd> <img src="https://github.com/Tejas-beep/Tejas-Beep/blob/main/Tejas-Beep/docs/paypal-button-blue.png" alt="PayPal" width="147"></a>
