@@ -141,5 +141,5 @@ If you like **AndroSploit**, please give it a **⭐ STAR** and **Fork** it! It h
 Android Exploitation, Metasploit Framework, ADB Hacking, Penetration Testing, Ethical Hacking, 
 Cybersecurity, Python Security Tools, Network Scanning, Remote Access Toolkit, Mobile Hacking, 
 Android Debug Bridge, Information Security, Black Box Testing, White Hat Hacking, Red Teaming, 
-Mobile Security Research, Reverse Engineering, Ethical Hacking Tool, Offensive Security, Android Pentesting
+Mobile Security Research, Ethical Hacking Tool, Offensive Security, Android Pentesting
 ```
