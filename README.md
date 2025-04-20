@@ -107,7 +107,7 @@ git clone https://github.com/Tejas-beep/AndroSploit.git
 cd AndroSploit/
 ```
 
-#### Step 4: Activate the virtual environment
+#### Step 3: Activate the virtual environment
 ```bash
 source venv/Scripts/activate
 ```
