@@ -107,7 +107,7 @@ git clone https://github.com/Tejas-beep/AndroSploit.git
 cd AndroSploit/
 ```
 
-#### Step 3: Navigate to the directory
+#### Step 3: Create a virtual environment
 ```bash
 python3 -m venv venv
 ```
