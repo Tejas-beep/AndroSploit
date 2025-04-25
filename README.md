@@ -87,7 +87,7 @@ source venv/bin/activate
 
 #### Step 5: Install dependencies
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 #### Step 6: Run AndroSploit
@@ -119,7 +119,7 @@ source venv/Scripts/activate
 
 #### Step 5: Install dependencies
 ```bash
-pip install -r requirements.txt
+pip install -r requirement.txt
 ```
 
 #### Step 6: Run AndroSploit
