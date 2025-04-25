@@ -1,6 +1,6 @@
 from modules import color
 
-version = "v1.0.0"
+version = "1.1.0"
 
 menu1 = f"""
 
@@ -31,9 +31,9 @@ menu3 = f"""
     {color.WHITE}31. {color.GREEN}Unlock Device               {color.WHITE}36. {color.GREEN}Extract APK from Installed App      {color.WHITE}41. {color.GREEN}Record Mic Audio
     {color.WHITE}32. {color.GREEN}Lock Device                 {color.WHITE}37. {color.GREEN}Stop ADB Server                     {color.WHITE}42. {color.GREEN}Listen Device Audio
     {color.WHITE}33. {color.GREEN}Dump All SMS                {color.WHITE}38. {color.GREEN}Power Off Device                    {color.WHITE}43. {color.GREEN}Record Device Audio
-    {color.WHITE}34. {color.GREEN}Dump All Contacts           {color.WHITE}39. {color.GREEN}Use Keycodes (Control Device)       
-    {color.WHITE}35. {color.GREEN}Dump Call Logs              {color.WHITE}40. {color.GREEN}Listen Mic Audio                    
-
+    {color.WHITE}34. {color.GREEN}Dump All Contacts           {color.WHITE}39. {color.GREEN}Use Keycodes (Control Device)       {color.WHITE}44. {color.GREEN}Scrcpy Screen Recording
+    {color.WHITE}35. {color.GREEN}Dump Call Logs              {color.WHITE}40. {color.GREEN}Listen Mic Audio                    {color.WHITE}45. {color.GREEN}spyware_detector_advanced
+                                                                                                                                  
 
    {color.YELLOW} 
   P : Previous Page                                  (Page : 3 / 3)"""
@@ -73,7 +73,7 @@ banner2 = f"""
                                      | |                  
                                      |_|                  
 
-            {color.RED}{version}{color.WHITE}         By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner3 = f"""
@@ -85,7 +85,7 @@ d8' `8b 888o  88 88  `8D 88  `8D .8P  Y8. 88'  YP 88  `8D 88      .8P  Y8.   `88
 YP   YP VP   V8P Y8888D' 88   YD  `Y88P'  `8888Y' 88      Y88888P  `Y88P'  Y888888P    YP    
                                                                                              
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner4 = f"""
@@ -95,7 +95,7 @@ banner4 = f"""
 |___|___||__|__|_____||__| |_____||_______||   __||__||_____||__|____|
                                            |__|                       
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner5 = f"""
@@ -108,7 +108,7 @@ banner5 = f"""
                                   | |                  
                                   |_|                  
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner6 = f"""
@@ -119,7 +119,7 @@ banner6 = f"""
 /_\/_\/_\/_\\___\/_\  \_//___/ / __//_\ \_/ /_\/_\ 
                                |_|                 
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner10 = f"""
@@ -133,11 +133,11 @@ banner10 = f"""
 |/     \||/    )_)(______/ |/   \__/(_______)\_______)|/       (_______/(_______)\_______/   )_(   
                                                                                                    
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner11 = f"""
-/.\                   ||`               .|'''|          '||`               ||    
+     /.\                   ||`               .|'''|          '||`               ||    
     // \\                  ||                ||               ||          ''    ||    
    //...\\    `||''|,  .|''||  '||''| .|''|, `|'''|, '||''|,  ||  .|''|,  ||  ''||''  
   //     \\    ||  ||  ||  ||   ||    ||  ||  .   ||  ||  ||  ||  ||  ||  ||    ||    
@@ -145,7 +145,7 @@ banner11 = f"""
                                                       ||                              
                                                      .||                              
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner12 = f"""
@@ -156,7 +156,7 @@ banner12 = f"""
 .|.  .||. .||. ||.  '|..'||. .||.     '|..|' |'....|'   ||...'  .||.  '|..|' .||.  '|.' 
                                                         ||                              
 
-            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-Beep
+            {color.RED}{version}{color.WHITE}            By https://github.com/Tejas-beep
 """
 
 banner_list = [

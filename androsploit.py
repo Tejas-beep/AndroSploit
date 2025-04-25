@@ -23,7 +23,6 @@ SOFTWARE.
 """
 
 
-
 import os
 import random
 import socket
@@ -32,6 +31,8 @@ import subprocess
 import platform
 import datetime
 import nmap
+import json
+import hashlib
 from modules import banner
 from modules import color
 
@@ -145,27 +146,24 @@ def change_page(name):
 
 
 def connect():
-    # Connect only 1 device at a time
     print(
-        f"\n{color.CYAN}Enter target phone's IP Address       {color.YELLOW}Example : 192.168.1.23{color.WHITE}"
+        f"\n{color.CYAN}Enter target phone's IP and PORT (for wireless debugging) "
+        f"{color.YELLOW}Example : 192.168.1.23:39415{color.WHITE}"
     )
-    ip = input("> ")
-    if ip == "":
+    ip_port = input("> ")
+    if ip_port == "":
         print(
             f"\n{color.RED} Null Input\n{color.GREEN} Going back to Main Menu{color.WHITE}"
         )
         return
+    elif ":" in ip_port and ip_port.count(":") == 1:
+        os.system("adb kill-server > docs/hidden.txt 2>&1 && adb start-server > docs/hidden.txt 2>&1")
+        print(f"{color.GREEN}Connecting to {ip_port}...{color.WHITE}")
+        os.system(f"adb connect {ip_port}")
     else:
-        # Restart ADB on new connection.
-        if ip.count(".") == 3:
-            os.system(
-                "adb kill-server > docs/hidden.txt 2>&1&&adb start-server > docs/hidden.txt 2>&1"
-            )
-            os.system("adb connect " + ip + ":5555")
-        else:
-            print(
-                f"\n{color.RED} Invalid IP Address\n{color.GREEN} Going back to Main Menu{color.WHITE}"
-            )
+        print(
+            f"\n{color.RED} Invalid IP:PORT format\n{color.GREEN} Expected format like 192.168.1.5:39415\n{color.WHITE}"
+        )
 
 
 def list_devices():
@@ -212,22 +210,21 @@ def get_screenshot():
             f"\n{color.PURPLE}Saving screenshot to {screenshot_location}\n{color.WHITE}"
         )
 
-    os.system(f"adb pull /sdcard/{file_name} {screenshot_location}")
+    os.system(f'adb pull /sdcard/{file_name} "{screenshot_location}"')
 
     # Asking to open file
     choice = input(
         f"\n{color.GREEN}Do you want to Open the file?     Y / N {color.WHITE}> "
     ).lower()
     if choice == "y" or choice == "":
-        os.system(f"{opener} {screenshot_location}/{file_name}")
+        os.system(f'{opener} "{screenshot_location}/{file_name}"')
 
     elif not choice == "n":
         while choice != "y" and choice != "n" and choice != "":
             choice = input("\nInvalid choice!, Press Y or N > ").lower()
             if choice == "y" or choice == "":
-                os.system(f"{opener} {screenshot_location}/{file_name}")
+                os.system(f'{opener} "{screenshot_location}/{file_name}"')
 
-    print("\n")
 
 
 def screenrecord():
@@ -1408,39 +1405,42 @@ def power_off():
     os.system(f"adb shell reboot -p")
     print("\n")
 
+
 def scan_network():
-    print(f"\n{color.GREEN}Scanning network for connected devices...{color.WHITE}\n")
+    print(f"\n{color.GREEN}Scanning network for devices running wireless ADB (debugging)...{color.WHITE}\n")
+
     ip = get_ip_address()
-    ip += "/24"
+    ip_range = ip.rsplit(".", 1)[0] + ".0/24"
 
     scanner = nmap.PortScanner()
-    scanner.scan(hosts=ip, arguments="-sn")
+    scanner.scan(hosts=ip_range, arguments="-p 30000-65535 -sS")
+
+    found = False
     for host in scanner.all_hosts():
         if scanner[host]["status"]["state"] == "up":
             try:
-                if len(scanner[host]["vendor"]) == 0:
-                    try:
-                        print(
-                            f"[{color.GREEN}+{color.WHITE}] {host}      \t {socket.gethostbyaddr(host)[0]}"
-                        )
-                    except:
-                        print(f"[{color.GREEN}+{color.WHITE}] {host}")
-                else:
-                    try:
-                        print(
-                            f"[{color.GREEN}+{color.WHITE}] {host}      \t {scanner[host]['vendor']}      \t {socket.gethostbyaddr(host)[0]}"
-                        )
-                    except:
-                        print(
-                            f"[{color.GREEN}+{color.WHITE}] {host}      \t {scanner[host]['vendor']}"
-                        )
+                for port in scanner[host]["tcp"]:
+                    if scanner[host]["tcp"][port]["state"] == "open":
+                        # Optional: Check if the open port reacts like ADB (basic heuristic)
+                        banner = scanner[host]["tcp"][port].get("name", "")
+                        if "adb" in banner.lower() or port in range(30000, 65536):
+                            try:
+                                hostname = socket.gethostbyaddr(host)[0]
+                            except:
+                                hostname = "Unknown"
+
+                            print(f"[{color.GREEN}ADB?{color.WHITE}] {host}:{port} ({hostname}) - Port {port} is OPEN")
+                            found = True
             except:
-                print(
-                    f"[{color.GREEN}+{color.WHITE}] {host}      \t {scanner[host]['vendor']}"
-                )
+                continue
+
+    if not found:
+        print(f"{color.RED}No wireless debugging (ADB over Wi-Fi) ports found.{color.WHITE}")
 
     print("\n")
 
+
+    
 
 def record_audio(mode):
     print(
@@ -1598,6 +1598,147 @@ def stream_audio(mode):
     print("\n")
 
 
+
+def scrcpy_screenrecord():
+    screenrecord_location = ""
+
+    instant = datetime.datetime.now()
+    file_name = f"scrcpy-vid-{instant.year}-{instant.month}-{instant.day}-{instant.hour}-{instant.minute}-{instant.second}.mp4"
+
+    print("Enter location to save (press Enter for default):")
+    temp_input = input("> ")
+
+    if temp_input == "":
+        screenrecord_location = "Downloaded-Files"
+    else:
+        screenrecord_location = temp_input
+
+    if not os.path.exists(screenrecord_location):
+        os.mkdir(screenrecord_location)
+
+    print("\nStarting screen recording using scrcpy...\n")
+    os.system(f'scrcpy --record="{screenrecord_location}/{file_name}"')
+
+    choice = input("\nDo you want to open the file? Y / N > ").lower()
+    if choice == "y" or choice == "":
+        os.system(f'xdg-open "{screenrecord_location}/{file_name}"')
+
+
+
+def is_device_connected():
+    try:
+        devices = subprocess.check_output(["adb", "devices"]).decode().splitlines()
+        return any("device" in d and not d.startswith("List") for d in devices)
+    except Exception as e:
+        print(f"Error checking device: {e}")
+        return False
+
+def is_rooted():
+    su_check = subprocess.getoutput("adb shell which su")
+    if su_check.strip() != "":
+        print("\u26a0\ufe0f Device might be rooted!")
+    else:
+        print("\u2705 No root access detected.")
+
+def detect_sniffers():
+    print("\n\ud83d\udd0d Scanning for known network sniffers...")
+    processes = subprocess.getoutput("adb shell ps")
+    sniffers = ["tcpdump", "ettercap", "wireshark", "mitm", "burp"]
+    found = False
+    for s in sniffers:
+        if s in processes:
+            print(f"\u26a0\ufe0f Sniffer detected: {s}")
+            found = True
+    if not found:
+        print("\u2705 No sniffers detected.")
+
+def boot_receiver_detector():
+    print("\n\ud83d\udd0d Checking for apps with BOOT_COMPLETED receivers...")
+    apps = subprocess.getoutput("adb shell pm list packages -3").splitlines()
+    for app in apps:
+        app = app.replace("package:", "").strip()
+        manifest = subprocess.getoutput(f"adb shell dumpsys package {app}")
+        if "RECEIVE_BOOT_COMPLETED" in manifest:
+            print(f"\u26a0\ufe0f {app} has boot receiver")
+
+def spyware_detector_advanced():
+    print("\n\ud83d\udd0d Starting advanced spyware and malware detection...")
+    suspicious_permissions = [
+        "RECORD_AUDIO", "READ_SMS", "SEND_SMS", "READ_CONTACTS",
+        "WRITE_CONTACTS", "ACCESS_FINE_LOCATION", "PROCESS_OUTGOING_CALLS",
+        "READ_CALL_LOG", "SYSTEM_ALERT_WINDOW", "RECEIVE_BOOT_COMPLETED"
+    ]
+    suspicious_keywords = [
+        "spy", "monitor", "stealth", "keylogger", "surveillance", "logger"
+    ]
+    apps = subprocess.getoutput("adb shell pm list packages -3").splitlines()
+    report = {}
+
+    for app in apps:
+        app = app.replace("package:", "").strip()
+        manifest = subprocess.getoutput(f"adb shell dumpsys package {app}")
+        flagged_perms = [perm for perm in suspicious_permissions if perm in manifest]
+        flagged_name = any(k in app.lower() for k in suspicious_keywords)
+        if flagged_perms or flagged_name:
+            report[app] = {
+                "permissions": flagged_perms,
+                "risk_level": "HIGH" if len(flagged_perms) > 2 else "MEDIUM",
+                "reason": "Suspicious name" if flagged_name else "Dangerous permissions"
+            }
+
+    if not report:
+        print("\u2705 No suspicious apps found!")
+    else:
+        print("\ud83d\udea8 Suspicious apps detected:\n")
+        print(json.dumps(report, indent=4))
+        save = input("\nDo you want to save the report? (Y/N) > ").lower()
+        if save == "y" or save == "":
+            filename = f"spyware_report_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            with open(filename, "w") as f:
+                json.dump(report, f, indent=4)
+            print(f"\ud83d\udcc1 Report saved as: {filename}")
+
+def live_log_monitor():
+    print("\n\ud83d\udcf1 Watching logs for suspicious entries... (press Ctrl+C to stop)\n")
+    try:
+        os.system("adb logcat | grep -i 'error\\|crash\\|security\\|exception'")
+    except KeyboardInterrupt:
+        print("\n\ud83d\udea9 Stopped log monitoring.")
+
+def andro_defender_menu():
+    if not is_device_connected():
+        print("\u274c No device connected. Please connect via ADB first.")
+        return
+
+    while True:
+        print("""
+\ud83d\udee1\ufe0f ANDRO DEFENDER - Main Menu \ud83d\udee1\ufe0f
+1. Check if device is rooted
+2. Detect network sniffers
+3. Detect spyware & harmful apps
+4. Detect apps with BOOT_COMPLETED
+5. Monitor logs in real-time
+6. Exit
+""")
+        choice = input("[Defender] Select an option > ")
+        if choice == "1":
+            is_rooted()
+        elif choice == "2":
+            detect_sniffers()
+        elif choice == "3":
+            spyware_detector_advanced()
+        elif choice == "4":
+            boot_receiver_detector()
+        elif choice == "5":
+            live_log_monitor()
+        elif choice == "6":
+            print("\ud83d\udc4b Exiting Defender...")
+            break
+        else:
+            print("\u274c Invalid selection. Try again.")
+
+
+
 def main():
     # Clearing the screen and presenting the menu
     # taking selection input from user
@@ -1701,8 +1842,14 @@ def main():
             stream_audio("device")
         case "43":
             record_audio("device")
+        case "44":
+            scrcpy_screenrecord() 
+        case "45":
+            spyware_detector_advanced()        
         case other:
             print("\nInvalid selection!\n")
+        
+
 
 
 # Starting point of the program
@@ -1733,7 +1880,6 @@ if run_androsploit:
             main()
         except KeyboardInterrupt:
             exit_androsploit()
-
 
 
 
