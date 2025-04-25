@@ -22,9 +22,9 @@ An all-in-one hacking tool written in **Python** to remotely exploit Android dev
 
 # 📷 Screenshots
 
-![Screenshot Page 1](docs/Screenshot-1.PNG)
-![Screenshot Page 2](docs/Screenshot-2.PNG)
-![Screenshot Page 3](docs/Screenshot-3.PNG)
+![Screenshot Page 1](docs/screenshot-1(1.1.0).PNG)
+![Screenshot Page 2](docs/screenshot-2(1.1.0).PNG)
+![Screenshot Page 3](docs/screenshot-3(1.1.0).PNG)
 
 ## 🚀 Features
 
