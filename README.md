@@ -107,17 +107,22 @@ git clone https://github.com/Tejas-beep/AndroSploit.git
 cd AndroSploit/
 ```
 
-#### Step 3: Activate the virtual environment
+#### Step 3: Navigate to the directory
+```bash
+python3 -m venv venv
+```
+
+#### Step 4: Activate the virtual environment
 ```bash
 source venv/Scripts/activate
 ```
 
-#### Step 4: Install dependencies
+#### Step 5: Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-#### Step 5: Run AndroSploit
+#### Step 6: Run AndroSploit
 ```bash
 python androsploit.py
 ```
