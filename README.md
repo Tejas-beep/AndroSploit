@@ -1,3 +1,4 @@
+
 <div align="center">
   <h1>🤖 AndroSploit</h1>
 
@@ -26,38 +27,84 @@ An all-in-one hacking tool written in **Python** to remotely exploit Android dev
 ![Screenshot Page 2](docs/screenshot-2(1.1.0).PNG)
 ![Screenshot Page 3](docs/screenshot-3(1.1.0).PNG)
 
-## 🚀 Features
+---
 
-✅ **Connect devices using ADB remotely.**  
-✅ **List connected devices.**  
-✅ **Disconnect all devices.**  
-✅ **Access connected device shell.**  
-✅ **Stop ADB Server.**  
-✅ **Take screenshots and automatically pull them to the computer.**  
-✅ **Screen record target device and retrieve the video.**  
-✅ **Transfer files and folders between computer and target device.**  
-✅ **Install and uninstall APK files.**  
-✅ **Run applications remotely.**  
-✅ **List all installed apps.**  
-✅ **Restart/Reboot the target device into various modes (System, Recovery, Bootloader, Fastboot).**  
-✅ **Exploit Device Completely:**  
-  - **Automatically fetch LHOST.**  
-  - **Create, install, and execute payloads using msfvenom.**  
-  - **Launch and set up Metasploit-Framework for a meterpreter session.**  
-✅ **Gain full control over the device through Metasploit:**  
-  - **List and manage files/folders on the target device.**  
-  - **Copy WhatsApp data, screenshots, and camera photos to the computer.**  
-  - **Take anonymous screenshots and recordings (auto-delete from target device).**  
-  - **Open links, display images, and play media remotely.**  
-  - **Retrieve device and battery information.**  
-  - **Use keystrokes to control the device remotely.**  
-  - **Send and dump SMS messages.**  
-  - **Unlock and lock the device remotely.**  
-  - **Extract APKs from installed apps.**  
-  - **Mirror and control the target device.**  
-  - **Power off the target device.**  
-  - **Scan the local network for connected devices.**  
-  - **Record and stream audio from the microphone and device.**  
+  
+# 🔥 New Features added in v1.1.0
+
+1. **📡 Scan Network for Devices**  
+   - Now scans the local network for connected devices.
+   - Detects **open ADB ports** and **live IPs**.
+   - Automatically displays IP:PORT combos you can directly use to connect in Tool #1.
+
+2. **🎥 Advanced Screen Recording for Android 10+**  
+   - Native `screenrecord` via ADB is blocked in modern Android.
+   - We added **Tool #44 (scrcpy recorder)** as a workaround.
+
+3. **🛡️ Spyware Detector**  
+   - **Tool #45** helps detect suspicious or malicious spyware/virus behavior on the connected Android device.
+
+---
+
+## ❌ Compatibility Notice  
+⚠️ **These tools only work on Android versions below 10:**
+
+- **Tool #7 - Screen Record (ADB native method)**  
+- **Tool #17 - Send SMS**  
+- **Tool #22 - Anonymous Screen Record**
+
+✅ **For Tool #7, use Tool #44 - Scrcpy Screen Recorder on Android 10 or above.**
+
+---
+# 🚀 Features
+Here are all tools available in **AndroSploit v1.1.0**:
+
+✅ 1.  Connect a Device  
+✅ 2.  List Connected Devices  
+✅ 3.  Disconnect All Devices  
+✅ 4.  Scan Network for Devices  
+✅ 5.  Mirror & Control Device  
+✅ 6.  Get Screenshot  
+✅ 7.  Screen Record  
+✅ 8.  Download File/Folder from Device  
+✅ 9.  Send File/Folder to Device  
+✅ 10. Run an App  
+✅ 11. Install an APK  
+✅ 12. Uninstall an App  
+✅ 13. List Installed Apps  
+✅ 14. Access Device Shell  
+✅ 15. Hack Device (Using Metasploit)  
+✅ 16. List All Folders/Files  
+✅ 17. Send SMS  
+✅ 18. Copy WhatsApp Data  
+✅ 19. Copy All Screenshots  
+✅ 20. Copy All Camera Photos  
+✅ 21. Anonymous Screenshot  
+✅ 22. Anonymous Screen Record  
+✅ 23. Open a Link on Device  
+✅ 24. Display a Photo on Device  
+✅ 25. Play an Audio on Device  
+✅ 26. Play a Video on Device  
+✅ 27. Get Device Information  
+✅ 28. Get Battery Information  
+✅ 29. Restart Device  
+✅ 30. Advanced Reboot Options  
+✅ 31. Unlock Device  
+✅ 32. Lock Device  
+✅ 33. Dump All SMS  
+✅ 34. Dump All Contacts  
+✅ 35. Dump Call Logs  
+✅ 36. Extract APK from Installed App  
+✅ 37. Stop ADB Server  
+✅ 38. Power Off Device  
+✅ 39. Use Keycodes (Control Device)  
+✅ 40. Listen Mic Audio  
+✅ 41. Record Mic Audio  
+✅ 42. Listen Device Audio  
+✅ 43. Record Device Audio  
+✅ 44. Scrcpy Screen Recording  
+✅ 45. spyware_detector_advanced  
+
 
 ---
 
@@ -95,6 +142,8 @@ pip install -r requirement.txt
 python3 androsploit.py
 ```
 
+---
+
 ### **Windows**
 
 #### Step 1: Clone the repository
@@ -114,7 +163,7 @@ python3 -m venv venv
 
 #### Step 4: Activate the virtual environment
 ```bash
-source venv/Scripts/activate
+venv\\Scripts\\activate
 ```
 
 #### Step 5: Install dependencies
@@ -133,10 +182,16 @@ python androsploit.py
 
 **Tejas Mahajan** - [@TejasMahajan](https://github.com/Tejas-beep)
 
+---
+
 ## ❤️ Support Me
 If you like my work, consider supporting me via:
 
-<a href="https://paypal.me/Tejasmahajan18" target="_blank"> <kbd> <img src="https://github.com/Tejas-beep/Tejas-Beep/blob/main/Tejas-Beep/docs/paypal-button-blue.png" alt="PayPal" width="147"></a>
+<a href="https://paypal.me/Tejasmahajan18" target="_blank"> 
+  <kbd> 
+    <img src="https://github.com/Tejas-beep/Tejas-Beep/blob/main/Tejas-Beep/docs/paypal-button-blue.png" alt="PayPal" width="147">
+  </kbd>
+</a>
 
 ---
 
@@ -146,10 +201,4 @@ If you like **AndroSploit**, please give it a **⭐ STAR** and **Fork** it! It h
 
 ---
 
-## 🔖 Tags
-```
-Android Exploitation, Metasploit Framework, ADB Hacking, Penetration Testing, Ethical Hacking, 
-Cybersecurity, Python Security Tools, Network Scanning, Remote Access Toolkit, Mobile Hacking, 
-Android Debug Bridge, Information Security, Black Box Testing, White Hat Hacking, Red Teaming, 
-Mobile Security Research, Ethical Hacking Tool, Offensive Security, Android Pentesting
-```
+**Thank You 😊 !!**
